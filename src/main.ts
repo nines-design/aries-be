@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { getEnvConfig } from './common/utils/index';
+import { getConfig } from './common/utils/index';
 import {
   FastifyAdapter,
   NestFastifyApplication,
@@ -15,7 +15,7 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter(),
   );
-  const envConfig = getEnvConfig();
+  const envConfig = getConfig();
   app.enableVersioning({
     defaultVersion: [VERSION_NEUTRAL, '1', '2'],
     type: VersioningType.URI,
