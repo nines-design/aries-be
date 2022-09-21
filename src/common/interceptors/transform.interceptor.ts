@@ -6,7 +6,6 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-// import { ErrorCode } from '../ErrorCode';
 
 interface Response<T> {
   data: T;
@@ -18,8 +17,8 @@ export class TransformInterceptor<T>
 {
   intercept(
     context: ExecutionContext,
-    next: CallHandler<T>,
-  ): Observable<Response<T>> | Promise<Observable<Response<T>>> {
+    next: CallHandler,
+  ): Observable<Response<T>> {
     return next.handle().pipe(
       map((data) => ({
         data,
