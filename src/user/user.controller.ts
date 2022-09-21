@@ -25,7 +25,7 @@ export class UserController {
     try {
       console.log(a.b.c);
     } catch (error) {
-      throw new BusinessException('你这个参数错了');
+      throw new BusinessException('你这个参数错了啊');
     }
     return 'hahahai';
   }

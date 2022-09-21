@@ -10,6 +10,8 @@ import { TransformInterceptor } from './common/interceptors/transform.intercepto
 import { DefaultExceptionFilter } from './common/exceptions/base.exception.filter';
 import { HttpExceptionFilter } from './common/exceptions/http.exception.filter';
 
+declare const module: any;
+
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
@@ -22,6 +24,11 @@ async function bootstrap() {
   });
   app.useGlobalFilters(new DefaultExceptionFilter(), new HttpExceptionFilter());
   app.useGlobalInterceptors(new TransformInterceptor());
+
+  if (module.hot) {
+    module.hot.accept();
+    module.hot.dispose(() => app.close());
+  }
   await app.listen(envConfig.APP_RUN_PORT);
 }
 bootstrap();

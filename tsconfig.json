@@ -18,8 +18,8 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@/*": ["src/*"],
-      "@config/*": ["config/*"]
+      "@/*": ["src/*"]
     }
-  }
+  },
+  "exclude": ["webpack-hmr.config.js"]
 }
