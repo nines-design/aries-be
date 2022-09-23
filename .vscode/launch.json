@@ -6,12 +6,12 @@
   "version": "0.2.0",
   "configurations": [
       {
-          "name": "debug nestplus",
+          "name": "debug aries",
           "request": "launch",
-          "runtimeArgs": ["run-script", "start:debug"],
+          "runtimeArgs": ["run", "start:debug"],
           "autoAttachChildProcesses": true,
           "console": "integratedTerminal",
-          "runtimeExecutable": "pnpm",
+          "runtimeExecutable": "npm",
           "skipFiles": ["<node_internals>/**"],
           "type": "pwa-node"
       }
