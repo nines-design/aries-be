@@ -33,4 +33,11 @@ export interface EnvConfig {
     entities: string;
     synchronize: boolean;
   };
+
+  REDIS_CONFIG: {
+    host: string;
+    port: number;
+    auth: string;
+    db: string;
+  };
 }

@@ -23,6 +23,7 @@ export class FeishuService {
 
     if (!appToken) {
       const response = await getAppToken();
+
       if (response.code === 0) {
         appToken = response.app_access_token;
         this.cacheManager.set(this.APP_TOKEN_CACHE_KEY, appToken, {

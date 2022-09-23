@@ -10,13 +10,6 @@ export class UserService {
   ) {}
 
   async createOrSave(user) {
-    try {
-      const result = await this.userRepository.save(user);
-
-      console.log('res', result);
-    } catch (error) {
-      console.log('res1', error);
-      throw error;
-    }
+    return this.userRepository.save(user);
   }
 }

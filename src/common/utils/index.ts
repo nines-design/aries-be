@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import * as fs from 'fs';\
 import { join } from 'path';
 import { EnvConfig } from 'src/type';
 import { parse } from 'yaml';
@@ -13,6 +13,10 @@ export const getConfig = () => {
   const environment = getEnv();
   const yamlPath = join(process.cwd(), `./.config/.${environment}.yaml`);
   const file = fs.readFileSync(yamlPath, 'utf8');
-  const config = parse(file);
-  return config as EnvConfig;
+  const config: EnvConfig = parse(file);
+  return config;
 };
+
+export const getPartOfConfig = <T extends keyof EnvConfig>(type: T) => {
+  return getConfig()[type]
+}
