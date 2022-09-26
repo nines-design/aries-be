@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+    },
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
@@ -12,15 +17,11 @@
     "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "noImplicitAny": false,
-    "strictBindCallApply": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "resolveJsonModule": true,
-    "paths": {
-      "@/*": ["src/*"]
-    }
-  },
-  "exclude": ["webpack-hmr.config.js"]
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "resolveJsonModule": true
+  }
 }

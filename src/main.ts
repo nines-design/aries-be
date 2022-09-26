@@ -14,13 +14,19 @@ import { TransformInterceptor } from './common/interceptors/transform.intercepto
 import { AllExceptionsFilter } from './common/exceptions/base.exception.filter';
 import { HttpExceptionFilter } from './common/exceptions/http.exception.filter';
 import { generateDocument } from './doc';
+import fastify from 'fastify';
+import { FastifyLogger } from './common/logger';
 
 declare const module: any;
 
 async function bootstrap() {
+  const fastifyInstance = fastify({
+    logger: FastifyLogger,
+  });
+
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    new FastifyAdapter(),
+    new FastifyAdapter(fastifyInstance),
   );
   const envConfig = getConfig();
 
