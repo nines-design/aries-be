@@ -22,10 +22,13 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@fastify/cookie": "^8.3.0",
     "@fastify/static": "^6.5.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/jwt": "^9.0.0",
+    "@nestjs/passport": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/platform-fastify": "^9.1.1",
     "@nestjs/swagger": "^6.1.2",
@@ -43,6 +46,9 @@
     "mkdirp": "^1.0.4",
     "mongoose": "^6.6.1",
     "mysql2": "^2.3.3",
+    "passport": "^0.6.0",
+    "passport-custom": "^1.1.1",
+    "passport-jwt": "^4.0.0",
     "pino-multi-stream": "^6.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",

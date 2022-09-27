@@ -16,6 +16,7 @@ import { HttpExceptionFilter } from './common/exceptions/http.exception.filter';
 import { generateDocument } from './doc';
 import fastify from 'fastify';
 import { FastifyLogger } from './common/logger';
+import fastifyCookie from '@fastify/cookie';
 
 declare const module: any;
 
@@ -28,6 +29,11 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter(fastifyInstance),
   );
+
+  app.register(fastifyCookie, {
+    secret: 'my-secret', // for cookies signature
+  });
+
   const envConfig = getConfig();
 
   app.useGlobalInterceptors(new TransformInterceptor());

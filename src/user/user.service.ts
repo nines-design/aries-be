@@ -12,4 +12,8 @@ export class UserService {
   async createOrSave(user) {
     return this.userRepository.save(user);
   }
+
+  async createOrUpdateByFeishu(feishuInfo) {
+    return await this.userRepository.save(feishuInfo);
+  }
 }
